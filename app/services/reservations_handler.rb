@@ -23,7 +23,7 @@ class ReservationsHandler
   end
 
   def reserve(book)
-    return unless book.can_reserve?(user)
+    return "This book cannot be reserved" unless book.can_be_reserved?(user)
 
     book.reservations.create(user: user, status: 'RESERVED')
   end
