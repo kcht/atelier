@@ -15,4 +15,10 @@ Rails.application.routes.draw do
   resources :books, except: [:delete, :edit, :update]
 
   get 'api/v1/books/lookup', to: 'api/v1/books#lookup'
+
+  resources :books do
+    collection do
+      get 'by_category/:name', action: :by_category
+    end
+  end
 end
