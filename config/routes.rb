@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  devise_for :users
-
   root to: "books#index"
 
   get 'books/:book_id/reserve', to: 'reservations#reserve', as: 'reserve_book'
@@ -21,4 +18,6 @@ Rails.application.routes.draw do
       get 'by_category/:name', action: :by_category
     end
   end
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
 end
