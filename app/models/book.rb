@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
   has_many :reservations
   has_many :borrowers, through: :reservations, source: :user
   belongs_to :category
